@@ -1,7 +1,7 @@
 import os
 from sentence_transformers import SentenceTransformer
 
-DATA_DIR = "../data"
+DATA_DIR = "data"
 movies_csv = os.path.join(DATA_DIR, "tmdb_5000_movies.csv")
 credits_csv = os.path.join(DATA_DIR, "tmdb_5000_credits.csv")
 
