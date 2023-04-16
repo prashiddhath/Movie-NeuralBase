@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+
+    <title>Movie NeuralBase</title>
+</head>
+<body>
+    <h2 class="ui center aligned header" style="padding-top: 25px;"><a href="/">Movie NeuralBase</a></h2>
+
+    <div class="ui container" style="padding-top: 10px;">
+        <div class="ui centered grid">
+          <div class="ten wide column">
+            <form action="/submit" method="post" class="ui form">
+              <div class="ui fluid icon input">
+                <input type="text" name="query" placeholder="Search for a movie">
+                <button type="submit" class="ui icon button" tabindex="-1">
+                  <i class="search icon"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
