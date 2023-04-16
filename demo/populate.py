@@ -15,13 +15,10 @@ from neural_search.metric import (
     construct_title_vectors,
 )
 
-from parse import parse_flags
-
 if __name__ == "__main__":
-    host, api_key, max_data = parse_flags()
-    qdrant_client = establish_conn(host, api_key)
+    qdrant_client = establish_conn()
 
-    df = load_movie_data(max_data)
+    df = load_movie_data()
 
     print("Constructing movie plot TF-IDF vectors...")
     vectors_tfidf, payload = construct_tfidf_plot(df)

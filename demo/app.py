@@ -1,18 +1,15 @@
 from neural_search import NeuralSearch
 from neural_search.config import TEMPLATE_DIR
-from parse import parse_flags
 
 from fastapi import FastAPI, Request, Form
 from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
 import uvicorn
 
-
-app = FastAPI()
-host, api_key, max_data = parse_flags()
-ns = NeuralSearch(host, api_key, max_data)
+ns = NeuralSearch()
 
 templates = Jinja2Templates(directory=TEMPLATE_DIR)
+app = FastAPI()
 
 
 @app.get("/search/{query}")
@@ -79,7 +76,3 @@ def homepage(request: Request):
     return templates.TemplateResponse(
         "home.html", {"request": request, "rand_titles": movie_titles}
     )
-
-
-if __name__ == "__main__":
-    uvicorn.run("app:app", host="0.0.0.0", port=10000, reload=True)
