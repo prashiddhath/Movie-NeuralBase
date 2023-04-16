@@ -1,24 +1,23 @@
-from .prepare_data import load_movie_data
-from .metric import (
+from neural_search.prepare_data import load_movie_data
+from neural_search.metric import (
     construct_tfidf_plot,
     construct_metadata_vectors,
 )
-from .config import (
+from neural_search.config import (
     model,
     tfidf_coll_name,
     titles_coll_name,
     metadata_coll_name
 )
-
-import numpy as np
-from qdrant_client import QdrantClient
+from neural_search.upload import establish_conn
 
 
 class NeuralSearch:
-    def __init__(self, upload) -> None:
+    def __init__(self, host, api_key=None) -> None:
         self._df = load_movie_data()
         self._no_movies = self._df.shape[0]
-        self._qdrant_client = QdrantClient(host="localhost", port=6333)
+        
+        self._qdrant_client = establish_conn(host, api_key)
 
         self._tfidf_coll_name = tfidf_coll_name
         self._metadata_coll_name = metadata_coll_name
@@ -37,6 +36,7 @@ class NeuralSearch:
     @property
     def qdrant_client(self):
         return self._qdrant_client
+
 
     def get_movie_index(self, movie_title: str) -> int:
         idx = self._df.index[self._df["title"] == movie_title].to_list()
@@ -67,12 +67,16 @@ class NeuralSearch:
 
     def get_movie_genres(self, movie_title):
         idx = self.get_movie_index(movie_title)
-        genres = self._df.iloc[[idx]]["genres"].values[0]
+        try:
+            genres = self._df.iloc[[idx]]["genres"].values[0]
+        except:
+            return []
+        
         genres = [genre.capitalize() for genre in genres]
         return genres
 
     def search_movies(self, query: str):
-        vector = self._model.encode(query).tolist()
+        vector = self._model.encode(query.lower()).tolist()
 
         search_result = self._qdrant_client.search(
             collection_name=self._titles_coll_name,

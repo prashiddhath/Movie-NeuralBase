@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from .config import movies_csv, credits_csv
+from neural_search.config import movies_csv, credits_csv
 from ast import literal_eval
 
 

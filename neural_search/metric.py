@@ -1,6 +1,6 @@
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 import numpy as np
-from .config import features_weight
+from neural_search.config import features_weight
 
 
 def construct_tfidf_plot(df):
@@ -50,7 +50,7 @@ def construct_title_vectors(model, titles):
     batch = []
 
     for title in titles:
-        batch.append(title)
+        batch.append(title.lower())
         if len(batch) >= batch_size:
             vectors.append(model.encode(batch))  # Text -> vector encoding happens here
             batch = []
