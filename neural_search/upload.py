@@ -18,6 +18,7 @@ def re_init_collection(qdrant_client, collection_name, size):
     qdrant_client.recreate_collection(
         collection_name=collection_name,
         vectors_config=VectorParams(size=size, distance="Cosine"),
+        on_disk_payload=True,
     )
 
 def establish_conn(host, api_key):
