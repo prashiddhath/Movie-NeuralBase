@@ -5,13 +5,17 @@ from neural_search.config import movies_csv, credits_csv
 from ast import literal_eval
 
 
-def load_movie_data():
-    fields = ["genres", "title", "id", "keywords", "overview", "production_companies"]
+def load_movie_data(max_data):
 
-    df_movies = pd.read_csv(movies_csv, skipinitialspace=True, usecols=fields)
+    fields_movies = ["genres", "title", "id", "keywords", "overview", "production_companies"]
+    fields_credits = ["movie_id", "cast", "crew"]
 
-    fields = ["movie_id", "cast", "crew"]
-    df_credits = pd.read_csv(credits_csv, skipinitialspace=True, usecols=fields)
+    if max_data:
+        df_movies = pd.read_csv(movies_csv, skipinitialspace=True, usecols=fields_movies, nrows=max_data)
+        df_credits = pd.read_csv(credits_csv, skipinitialspace=True, usecols=fields_credits, nrows=max_data)
+    else:
+        df_movies = pd.read_csv(movies_csv, skipinitialspace=True, usecols=fields_movies)
+        df_credits = pd.read_csv(credits_csv, skipinitialspace=True, usecols=fields_credits)
 
     df_credits.columns = ["id", "cast", "crew"]
     df_movies = df_movies.merge(df_credits, on="id")

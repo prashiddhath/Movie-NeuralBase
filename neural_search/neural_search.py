@@ -13,8 +13,8 @@ from neural_search.upload import establish_conn
 
 
 class NeuralSearch:
-    def __init__(self, host, api_key=None) -> None:
-        self._df = load_movie_data()
+    def __init__(self, host, api_key=None, max_data=None) -> None:
+        self._df = load_movie_data(max_data)
         self._no_movies = self._df.shape[0]
         
         self._qdrant_client = establish_conn(host, api_key)

@@ -18,10 +18,10 @@ from neural_search.metric import (
 from parse import parse_flags
 
 if __name__ == "__main__":
-    host, api_key = parse_flags()
+    host, api_key, max_data = parse_flags()
     qdrant_client = establish_conn(host, api_key)
 
-    df = load_movie_data()
+    df = load_movie_data(max_data)
 
     print("Constructing movie plot TF-IDF vectors...")
     vectors_tfidf, payload = construct_tfidf_plot(df)
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     print("Embedding movie titles...")
     vectors_title = construct_title_vectors(model, df["title"])
 
-    print("Uploading embedded title vectors to Qdrant...")
+    print("Uploading embedded title vectors to Qdrant cluster...")
     upload_data(
         qdrant_client,
         titles_coll_name,
@@ -40,7 +40,7 @@ if __name__ == "__main__":
         payload,
     )
 
-    print("Uploading plot-based vectors to Qdrant")
+    print("Uploading plot-based `TF-IDF vectors to Qdrant cluster...")
     upload_data(
         qdrant_client,
         tfidf_coll_name,
@@ -48,7 +48,7 @@ if __name__ == "__main__":
         payload,
     )
 
-    print("Uploading metadata based vectors to Qdrant")
+    print("Uploading metadata based Count vectors to Qdrant cluster...")
     upload_data(
         qdrant_client,
         metadata_coll_name,

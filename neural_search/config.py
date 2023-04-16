@@ -1,9 +1,10 @@
 import os
 from sentence_transformers import SentenceTransformer
 
-DATA_DIR = "data"
+DATA_DIR = os.environ.get("QDRANT_HOST", "data")
 movies_csv = os.path.join(DATA_DIR, "tmdb_5000_movies.csv")
 credits_csv = os.path.join(DATA_DIR, "tmdb_5000_credits.csv")
+TEMPLATE_DIR = os.environ.get("TEMPLATE_DIR", "demo/templates/")
 
 features_weight = {
     "keywords": 1,
