@@ -22,7 +22,7 @@ def re_init_collection(qdrant_client, collection_name, size):
 
 def establish_conn(host, api_key):
     if api_key:
-        qdrant_client = QdrantClient(host=host, api_key=api_key)
+        qdrant_client = QdrantClient(url=host, api_key=api_key)
     else:
         qdrant_client = QdrantClient(host=host)
     
