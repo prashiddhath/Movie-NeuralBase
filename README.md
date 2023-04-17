@@ -86,17 +86,17 @@ The web-app should now be deployed and accessible at http://localhost:8000/.
 
 ### Home Page
 
-![Home page of the web-app](https://i.imgur.com/msfTazu.png "Home Page")
+![Home page of the web-app](https://i.imgur.com/d7AqSAn.png "Home Page")
 
 The home page of the web-app is a search bar with random movie suggestions below it. 
 
 ### Search Results
 
-![Searching for a movie](https://i.imgur.com/lSthRHf.png "Search Results")
+![Searching for a movie](https://i.imgur.com/caAvuIb.png "Search Results")
 
 ### Movie Page
 
-![Searching for a movie](https://i.imgur.com/fw4WFtU.png "Search Results")
+![Movie Page](https://i.imgur.com/5BQ6NWA.png "Movie Page")
 
 ## Contact and Feedback
 
