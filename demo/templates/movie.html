@@ -1,14 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<div class="ui container" style="padding-top: 25px;">
+<div class="ui container" style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
     <div class="ui segment">
       <h2 class="ui header">{{ selected_movie }}</h2>
-      <p>{{ description }}</p>
+        <div style="margin-top: -10px;">
+        <p style="display: inline-block;"><b>Genres</b>: {{", ".join(genres)}}</p>
+        </div>
+        <div style="margin-top: 20px;">
+            <p>{{ description }}</p>
+        </div>
     </div>
 </div>
 
-<div style="padding-left: 160px; padding-top: 25px; padding-right: 160px">
+<div style="padding-left: 210px; padding-top: 25px; padding-right: 210px;">
     <h3>Movie recommendation based on metadata</h3>
     <div class="ui celled horizontal list">
         {% for title in metadata_based_rec %}
