@@ -40,11 +40,6 @@ Install the neural_search package:
 (.venv) foo@bar Neural-Search-with-Qdrant:~$ pip install -e .
 ```
 
-Install the neural_search package:
-```console
-(.venv) foo@bar Neural-Search-with-Qdrant:~$ pip install -e .
-```
-
 ### Configuring the Movie NeuralBase App
 
 #### Connection to Qdrant Cluster
