@@ -92,11 +92,11 @@ The home page of the web-app is a search bar with random movie suggestions below
 
 ### Search Results
 
-![Searching for a movie](https://i.imgur.com/eLyHs5m.png "Search Results")
+![Searching for a movie](https://i.imgur.com/lSthRHf.png "Search Results")
 
 ### Movie Page
 
-![Searching for a movie](https://i.imgur.com/5BQ6NWA.png "Search Results")
+![Searching for a movie](https://i.imgur.com/fw4WFtU.png "Search Results")
 
 ## Contact and Feedback
 
