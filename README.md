@@ -40,9 +40,9 @@ Install the neural_search package:
 (.venv) foo@bar Neural-Search-with-Qdrant:~$ pip install -e .
 ```
 
-### Configuring the Movie NeuralBase App
+## Configuring the Movie NeuralBase App
 
-#### Connection to Qdrant Cluster
+### Connection to Qdrant Cluster
 Please make sure that the details to your Qdrant cluster is properly set including the API key. By default, the web-app is configured to run on your local machine. You can either add the `HOST` and `API_KEY` variables to the environment or directly specify it as follows:
 
 ```python
@@ -51,7 +51,7 @@ host = #HOST_NAME
 api_key = #API_KEY
 ```
 
-#### Upload Limit
+### Upload Limit
 The config file also consits of a `max_data` parameter which determines how many movies to upload in the Qdrant cluster and, consequently, use in the web-app. If you are using the free-tier Qdrant cluster then please set the `max_data` variable to `3800`. Due to the memory limit of 1GB, all the 4802 movie vectors cannot be uploaded even with `on_disk_payload` set to `True`. Similar to the connection details, the max_data can be specified with the "MAX_DATA" in the environment or directly in the config.py:
 
 ```python
