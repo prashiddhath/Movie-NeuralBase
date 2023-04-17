@@ -3,13 +3,13 @@
 ## Introduction
 Movie NeuralBase is an AI-based web-app that can be used to search for movies. When a movie is selected, the app also shows its relevant metadata and movie recommendations similar to it. The web-app utilizes `Qdrant` engine to store embedded vectors and perform search queries. 
 
-To search for movies, the app uses `multi-qa-distilbert-cos-v1` model to embed the titles to vector space. Furthermore, for movie recommendation, it uses two distinct embedding techniques: TF-IDF (Term Frequency - Inverse Document Frequency) vectors based on the plot (overview) and Count Vectorization based on the metadata. 
+To search for movies, the app uses `multi-qa-distilbert-cos-v1` model to embed the titles to vector space. Furthermore, for movie recommendation, it uses two distinct embedding techniques: `TF-IDF` (Term Frequency - Inverse Document Frequency) vectors based on the plot (overview) and `Count Vectorization` based on the metadata. 
 
 ### Demo
 http://167.172.177.11/
 
 >**NOTE:**
->The data set used for this project, for most movies, doesn't have long plots (overview) and could be vague. This could impact the plot-based recommendations. Similarly, adding more movies to the data could also improve the metadata-based recommendation. Currently, the deployed web-app consists of only 3800 movies.
+>The data set used for this project, for most movies, doesn't have long plots (overview) and could be vague. This could impact the plot-based recommendations. Similarly, adding more movies to the data could also improve the metadata-based recommendation. Currently, the deployed web-app consists of only `3800` movies as it runs on the free Qdrant cluster with 1GB memory. Due to the memory limit, all the 4802 movie vectors cannot be uploaded even with `on_disk_payload` set to `True`.
 
 
 ## Software requirements
