@@ -1,5 +1,6 @@
 from qdrant_client.models import VectorParams
 from qdrant_client import QdrantClient
+from neural_search.config import host, api_key
 
 def upload_data(qdrant_client, collection_name, vectors, payload=None, ids=None):
     size = vectors.shape[1]
@@ -21,7 +22,7 @@ def re_init_collection(qdrant_client, collection_name, size):
         on_disk_payload=True
     )
 
-def establish_conn(host, api_key):
+def establish_conn():
     if api_key:
         qdrant_client = QdrantClient(url=host, api_key=api_key)
     else:

@@ -1,11 +1,11 @@
 import numpy as np
 import pandas as pd
 
-from neural_search.config import movies_csv, credits_csv
+from neural_search.config import movies_csv, credits_csv, max_data
 from ast import literal_eval
 
 
-def load_movie_data(max_data):
+def load_movie_data():
 
     fields_movies = ["genres", "title", "id", "keywords", "overview", "production_companies"]
     fields_credits = ["movie_id", "cast", "crew"]
