@@ -5,7 +5,7 @@ Movie NeuralBase is an AI-based web-app that can be used to search for movies. W
 
 To search for movies, the app uses `multi-qa-distilbert-cos-v1` model to embed the titles to vector space. Furthermore, for movie recommendation, it uses two distinct embedding techniques: `TF-IDF` (Term Frequency - Inverse Document Frequency) vectors based on the plot (overview) and `Count Vectorization` based on the metadata. 
 
-### Demo
+### Try it out (Demo link)
 http://167.172.177.11/
 
 >**NOTE:**
