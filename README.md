@@ -31,7 +31,7 @@ foo@bar Neural-Search-with-Qdrant:~$ source .venv/bin/activate
 >**NOTE:**
 >The virtual environment can be deactivated using the `deactivate` command.
 ```console
-(.venv) foo@bar scnx-py-minstrel:~$ deactivate
+(.venv) foo@bar Neural-Search-with-Qdrant:~$ deactivate
 ```
 
 
